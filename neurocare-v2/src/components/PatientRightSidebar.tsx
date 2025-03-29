@@ -5,6 +5,7 @@ import {
   Form,
   ToggleButtonGroup,
   ToggleButton,
+  Card,
 } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Importer le style de date-picker
@@ -43,24 +44,33 @@ const PatientRightSidebar: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (activeTab === "notes" && newNote.description.trim()) {
-      setNotes((prevData) =>
-        [{ date: new Date().toLocaleString(), ...newNote }, ...prevData].slice(
-          0,
-          4
-        )
-      );
+      setNotes((prevData) => [
+        {
+          date: new Date().toLocaleString("fr-FR", {
+            dateStyle: "short",
+            timeStyle: "short",
+          }),
+          description: newNote.description,
+          etat: newNote.etat,
+        },
+        ...prevData,
+      ]);
       setNewNote({ description: "", etat: "😊" });
     } else if (
       activeTab === "agenda" &&
       newEvent.event.trim() &&
       newEvent.date
     ) {
-      setAgenda((prevData) =>
-        [
-          { date: newEvent.date.toLocaleString(), event: newEvent.event },
-          ...prevData,
-        ].slice(0, 4)
-      );
+      setAgenda((prevData) => [
+        {
+          date: newEvent.date.toLocaleString("fr-FR", {
+            dateStyle: "short",
+            timeStyle: "short",
+          }),
+          event: newEvent.event,
+        },
+        ...prevData,
+      ]);
       setNewEvent({ date: new Date(), event: "" });
     }
   };
@@ -85,30 +95,37 @@ const PatientRightSidebar: React.FC = () => {
           <h5>Agenda</h5>
         </Col>
       </Row>
-      <Row className="mb-3 border-bottom">
+      <Row
+        className="mb-3 border-bottom"
+        style={{ maxHeight: "60vh", overflowY: "auto" }} // Définit le défilement
+      >
         {activeTab === "notes"
           ? notes.map((item, index) => (
-              <Row className="mb-3" key={index}>
-                <p>
-                  <strong>Date :</strong> {item.date}
-                </p>
-                <p>
-                  <strong>Description :</strong> {item.description}
-                </p>
-                <p>
-                  <strong>État :</strong> {item.etat}
-                </p>
-              </Row>
+              <Card key={index} className="mb-3">
+                <Card.Body>
+                  <Card.Text>
+                    <strong>Date :</strong> {item.date}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Description :</strong> {item.description}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>État :</strong> {item.etat}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
             ))
           : agenda.map((item, index) => (
-              <Row className="mb-3" key={index}>
-                <p>
-                  <strong>Date :</strong> {item.date}
-                </p>
-                <p>
-                  <strong>Événement :</strong> {item.event}
-                </p>
-              </Row>
+              <Card key={index} className="mb-3">
+                <Card.Body>
+                  <Card.Text>
+                    <strong>Date :</strong> {item.date}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Événement :</strong> {item.event}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
             ))}
       </Row>
       <Row className="mt-auto">
