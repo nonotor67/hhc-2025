@@ -6,6 +6,7 @@ const MesInfo: React.FC = () => {
   const defaultFirstName = import.meta.env.VITE_DEFAULT_FIRSTNAME || "Prénom";
   const defaultLastName = import.meta.env.VITE_DEFAULT_LASTNAME || "Nom";
 
+  // États pour les informations personnelles
   const [firstName, setFirstName] = useState(() => localStorage.getItem("firstName") || defaultFirstName);
   const [lastName, setLastName] = useState(() => localStorage.getItem("lastName") || defaultLastName);
   const [height, setHeight] = useState(() => localStorage.getItem("height") || "170");
@@ -21,7 +22,6 @@ const MesInfo: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Sauvegarder les valeurs dans le localStorage
     localStorage.setItem("firstName", firstName);
     localStorage.setItem("lastName", lastName);
     localStorage.setItem("height", height);
@@ -34,14 +34,15 @@ const MesInfo: React.FC = () => {
       `Profil mis à jour :\nNom : ${lastName}\nPrénom : ${firstName}\nTaille : ${height} cm\nPoids : ${weight} kg\nGroupe sanguin : ${bloodGroup}\nÂge : ${age} ans\nAllergies : ${allergies}`
     );
 
-    // Rafraîchir la page après l'alerte
     window.location.reload();
   };
 
   return (
     <Container fluid className="info-container">
       <h1 className="info-title">Mes Infos</h1>
-      <Card className="info-card">
+      
+      {/* Carte des informations personnelles */}
+      <Card className="info-card mb-4">
         <Card.Body>
           <Form onSubmit={handleSubmit}>
             <Row className="mb-3">
