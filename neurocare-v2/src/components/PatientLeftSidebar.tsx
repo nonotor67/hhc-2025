@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-const Sidebar: React.FC = () => {
+const PatientLeftSidebar: React.FC = () => {
   const navLinks = [
     { path: "informations", label: "👤 Mes Informations" },
     { path: "synthesis", label: "📋 Synthèse" },
@@ -44,4 +44,4 @@ const Sidebar: React.FC = () => {
   );
 };
 
-export default Sidebar;
+export default PatientLeftSidebar;
