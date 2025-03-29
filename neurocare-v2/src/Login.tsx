@@ -13,7 +13,7 @@ export default function Login() {
     if (email && password) {
       // Simuler une connexion réussie
       setTimeout(() => {
-        navigate("/patients/synthesis");
+        navigate("/patients/accueil");
       }, 1000);
     } else {
       alert("Veuillez remplir tous les champs.");
