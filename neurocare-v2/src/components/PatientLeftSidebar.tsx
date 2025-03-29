@@ -12,7 +12,7 @@ const PatientLeftSidebar: React.FC = () => {
   ];
 
   return (
-    <Col className="bg-light vh-100 d-flex flex-column p-3 border-end">
+    <Col className="bg-light vh-100 d-flex flex-column p-3">
       <div className="text-center mb-4">
         <img
           src="https://imgs.search.brave.com/LiuI83vxS82ZNllheTy12yvXkniiyov184EFUIuThsE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzYxL2Y3/LzVlLzYxZjc1ZWE5/YTY4MGRlZjJlZDFj/NjkyOWZlNzVhZWVl/LmpwZw"

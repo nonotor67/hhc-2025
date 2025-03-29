@@ -6,15 +6,15 @@ import { Outlet } from "react-router-dom";
 
 const Layout: React.FC = () => {
   return (
-    <Container fluid className="p-0">
+    <Container fluid className="vh-100 d-flex flex-column">
       <Row>
-        <Col xs={2} className="bg-light sidebar">
+        <Col xs={2} className="bg-light">
           <PatientLeftSidebar />
         </Col>
         <Col xs={8} className="content">
           <Outlet />
         </Col>
-        <Col xs={2} className="bg-light sidebar">
+        <Col xs={2} className="bg-light">
           <PatientRightSidebar />
         </Col>
       </Row>
