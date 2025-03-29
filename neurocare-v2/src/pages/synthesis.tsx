@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Button, Form, Row, Col } from "react-bootstrap";
 import "./synthesis.css";
 
@@ -10,17 +10,31 @@ interface CheckItem {
 }
 
 const Synthese: React.FC = () => {
-  const [summaryText, setSummaryText] = useState("Voici un résumé de vos données.");
+  const [summaryText, setSummaryText] = useState(() => localStorage.getItem("summaryText") || "Voici un résumé de vos données.");
   const [lastUpdated, setLastUpdated] = useState(new Date().toLocaleString());
 
-  const [dayTasks, setDayTasks] = useState<CheckItem[]>([]);
-  const [medications, setMedications] = useState<CheckItem[]>([]);
+  const [dayTasks, setDayTasks] = useState<CheckItem[]>(() => {
+    const savedTasks = localStorage.getItem("dayTasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  const [medications, setMedications] = useState<CheckItem[]>(() => {
+    const savedMeds = localStorage.getItem("medications");
+    return savedMeds ? JSON.parse(savedMeds) : [];
+  });
 
   const [newTask, setNewTask] = useState("");
   const [taskHour, setTaskHour] = useState("");
 
   const [newMedication, setNewMedication] = useState("");
   const [medicationHour, setMedicationHour] = useState("");
+
+  // Sauvegarder les données dans le localStorage à chaque modification
+  useEffect(() => {
+    localStorage.setItem("summaryText", summaryText);
+    localStorage.setItem("dayTasks", JSON.stringify(dayTasks));
+    localStorage.setItem("medications", JSON.stringify(medications));
+  }, [summaryText, dayTasks, medications]);
 
   const getCurrentTime = (): string => {
     const now = new Date();
@@ -29,7 +43,7 @@ const Synthese: React.FC = () => {
 
   const addTask = () => {
     if (newTask.trim()) {
-      setDayTasks([
+      const updatedTasks = [
         ...dayTasks,
         {
           label: newTask,
@@ -37,7 +51,8 @@ const Synthese: React.FC = () => {
           time: getCurrentTime(),
           hour: taskHour ? `${taskHour}h` : "Non spécifiée",
         },
-      ]);
+      ];
+      setDayTasks(updatedTasks);
       setNewTask("");
       setTaskHour("");
     }
@@ -45,7 +60,7 @@ const Synthese: React.FC = () => {
 
   const addMedication = () => {
     if (newMedication.trim()) {
-      setMedications([
+      const updatedMeds = [
         ...medications,
         {
           label: newMedication,
@@ -53,7 +68,8 @@ const Synthese: React.FC = () => {
           time: getCurrentTime(),
           hour: medicationHour ? `${medicationHour}h` : "Non spécifiée",
         },
-      ]);
+      ];
+      setMedications(updatedMeds);
       setNewMedication("");
       setMedicationHour("");
     }
