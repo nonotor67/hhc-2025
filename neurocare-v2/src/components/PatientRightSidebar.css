@@ -1,3 +1,7 @@
+.right-sidebar {
+  background-color: #dfe3e5;
+}
+
 .tab {
   cursor: pointer;
   padding: 10px;
@@ -10,7 +14,7 @@
 }
 
 .tab.active {
-  background: #007bff;
+  background: #455a64;
   color: white;
 }
 

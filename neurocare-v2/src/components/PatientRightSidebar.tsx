@@ -76,7 +76,7 @@ const PatientRightSidebar: React.FC = () => {
   };
 
   return (
-    <Col className="bg-light vh-100 d-flex flex-column p-3">
+    <Col className="vh-100 d-flex flex-column p-3">
       <Row className="text-center mb-3 border-bottom">
         <Col
           xs={6}
@@ -151,13 +151,25 @@ const PatientRightSidebar: React.FC = () => {
                     value={newNote.etat}
                     onChange={handleEtatChange}
                   >
-                    <ToggleButton id="happy" value="😊" className="emoji-btn">
+                    <ToggleButton
+                      id="happy"
+                      value="😊"
+                      className="emoji-btn left"
+                    >
                       😊
                     </ToggleButton>
-                    <ToggleButton id="neutral" value="😐" className="emoji-btn">
+                    <ToggleButton
+                      id="neutral"
+                      value="😐"
+                      className="emoji-btn middle"
+                    >
                       😐
                     </ToggleButton>
-                    <ToggleButton id="sad" value="😢" className="emoji-btn">
+                    <ToggleButton
+                      id="sad"
+                      value="😢"
+                      className="emoji-btn right"
+                    >
                       😢
                     </ToggleButton>
                   </ToggleButtonGroup>

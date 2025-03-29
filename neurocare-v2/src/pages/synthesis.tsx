@@ -10,7 +10,10 @@ interface CheckItem {
 }
 
 const Synthese: React.FC = () => {
-  const [summaryText, setSummaryText] = useState(() => localStorage.getItem("summaryText") || "Voici un résumé de vos données.");
+  const [summaryText, setSummaryText] = useState(
+    () =>
+      localStorage.getItem("summaryText") || "Voici un résumé de vos données."
+  );
   const [lastUpdated, setLastUpdated] = useState(new Date().toLocaleString());
 
   const [dayTasks, setDayTasks] = useState<CheckItem[]>(() => {
@@ -100,7 +103,9 @@ const Synthese: React.FC = () => {
   };
 
   const handleResearchSubmit = () => {
-    alert("Vos données ont été transmises à la recherche !\n\nMerci de votre confiance !");
+    alert(
+      "Vos données ont été transmises à la recherche !\n\nMerci de votre confiance !"
+    );
   };
 
   return (
@@ -118,12 +123,23 @@ const Synthese: React.FC = () => {
               onChange={(e) => setSummaryText(e.target.value)}
             />
           </Form.Group>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div className="text-muted">Dernière mise à jour : {lastUpdated}</div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <div className="text-muted">
+              Dernière mise à jour : {lastUpdated}
+            </div>
             <div>
-              <Button variant="outline-primary" onClick={() => setLastUpdated(new Date().toLocaleString())}>
+              <Button
+                className="btn-secondary"
+                onClick={() => setLastUpdated(new Date().toLocaleString())}
+              >
                 Actualiser
-              </Button>{' '}
+              </Button>{" "}
               <Button variant="primary" onClick={handlePDFDownload}>
                 Télécharger PDF
               </Button>
@@ -156,7 +172,11 @@ const Synthese: React.FC = () => {
                       </div>
                     </div>
                     {task.checked && (
-                      <Button variant="outline-danger" size="sm" onClick={() => deleteTask(index)}>
+                      <Button
+                        variant="outline-danger"
+                        size="sm"
+                        onClick={() => deleteTask(index)}
+                      >
                         Supprimer
                       </Button>
                     )}
@@ -180,7 +200,7 @@ const Synthese: React.FC = () => {
                   onChange={(e) => setTaskHour(e.target.value)}
                   placeholder="Heure prévue (1 à 24)"
                 />
-                <Button variant="success" onClick={addTask}>
+                <Button className="btn-secondary" onClick={addTask}>
                   Ajouter
                 </Button>
               </Form>
@@ -211,7 +231,11 @@ const Synthese: React.FC = () => {
                       </div>
                     </div>
                     {med.checked && (
-                      <Button variant="outline-danger" size="sm" onClick={() => deleteMedication(index)}>
+                      <Button
+                        variant="outline-danger"
+                        size="sm"
+                        onClick={() => deleteMedication(index)}
+                      >
                         Supprimer
                       </Button>
                     )}
@@ -235,7 +259,7 @@ const Synthese: React.FC = () => {
                   onChange={(e) => setMedicationHour(e.target.value)}
                   placeholder="Heure prévue (1 à 24)"
                 />
-                <Button variant="success" onClick={addMedication}>
+                <Button className="btn-secondary" onClick={addMedication}>
                   Ajouter
                 </Button>
               </Form>
