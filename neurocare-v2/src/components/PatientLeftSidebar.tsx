@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const PatientLeftSidebar: React.FC = () => {
+  const defaultFirstName = import.meta.env.VITE_DEFAULT_FIRSTNAME || "Prénom";
+  const defaultLastName = import.meta.env.VITE_DEFAULT_LASTNAME || "Nom";
+
+  const [firstName, setFirstName] = useState(() => localStorage.getItem("firstName") || defaultFirstName);
+  const [lastName, setLastName] = useState(() => localStorage.getItem("lastName") || defaultLastName);
+
+  // Écouter les changements dans le localStorage
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setFirstName(localStorage.getItem("firstName") || defaultFirstName);
+      setLastName(localStorage.getItem("lastName") || defaultLastName);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, [defaultFirstName, defaultLastName]);
+
   const navLinks = [
     { path: "informations", label: "👤 Mes Informations" },
     { path: "synthesis", label: "📋 Synthèse" },
@@ -20,7 +37,7 @@ const PatientLeftSidebar: React.FC = () => {
           className="rounded-circle mb-2"
           style={{ width: "100px", height: "100px" }}
         />
-        <h5>Nom Utilisateur</h5>
+        <h5>{firstName} {lastName}</h5>
         <p className="text-muted">Mon compte</p>
       </div>
 

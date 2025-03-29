@@ -3,15 +3,27 @@ import { Card, Form, Button, Row, Col, Container } from "react-bootstrap";
 import "./Informations.css";
 
 const MesInfo: React.FC = () => {
+  const defaultFirstName = import.meta.env.VITE_DEFAULT_FIRSTNAME || "Prénom";
+  const defaultLastName = import.meta.env.VITE_DEFAULT_LASTNAME || "Nom";
+
+  const [firstName, setFirstName] = useState(() => localStorage.getItem("firstName") || defaultFirstName);
+  const [lastName, setLastName] = useState(() => localStorage.getItem("lastName") || defaultLastName);
   const [height, setHeight] = useState(() => localStorage.getItem("height") || "170");
   const [weight, setWeight] = useState(() => localStorage.getItem("weight") || "65");
   const [bloodGroup, setBloodGroup] = useState(() => localStorage.getItem("bloodGroup") || "A+");
   const [age, setAge] = useState(() => localStorage.getItem("age") || "30");
   const [allergies, setAllergies] = useState(() => localStorage.getItem("allergies") || "Aucune");
 
+  useEffect(() => {
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
+  }, [firstName, lastName]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Sauvegarder les valeurs dans le localStorage
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
     localStorage.setItem("height", height);
     localStorage.setItem("weight", weight);
     localStorage.setItem("bloodGroup", bloodGroup);
@@ -19,8 +31,11 @@ const MesInfo: React.FC = () => {
     localStorage.setItem("allergies", allergies);
     
     alert(
-      `Profil mis à jour :\nTaille : ${height} cm\nPoids : ${weight} kg\nGroupe sanguin : ${bloodGroup}\nÂge : ${age} ans\nAllergies : ${allergies}`
+      `Profil mis à jour :\nNom : ${lastName}\nPrénom : ${firstName}\nTaille : ${height} cm\nPoids : ${weight} kg\nGroupe sanguin : ${bloodGroup}\nÂge : ${age} ans\nAllergies : ${allergies}`
     );
+
+    // Rafraîchir la page après l'alerte
+    window.location.reload();
   };
 
   return (
@@ -29,6 +44,31 @@ const MesInfo: React.FC = () => {
       <Card className="info-card">
         <Card.Body>
           <Form onSubmit={handleSubmit}>
+            <Row className="mb-3">
+              <Col md={6}>
+                <Form.Group controlId="formFirstName">
+                  <Form.Label>Prénom</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder={defaultFirstName}
+                  />
+                </Form.Group>
+              </Col>
+              <Col md={6}>
+                <Form.Group controlId="formLastName">
+                  <Form.Label>Nom</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder={defaultLastName}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+
             <Row className="mb-3">
               <Col md={6}>
                 <Form.Group controlId="formHeight">
