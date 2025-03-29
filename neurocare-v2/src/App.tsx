@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import logo from "./assets/logo.svg";
 import "./App.css";
 
-import Professionals from "./Professionals";
 import PatientLayout from "./Layout";
 import Agenda from "./pages/Agenda";
 import Informations from "./pages/Informations";
