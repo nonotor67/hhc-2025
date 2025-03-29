@@ -8,7 +8,6 @@ const PatientLeftSidebar: React.FC = () => {
     { path: "synthesis", label: "📋 Synthèse" },
     { path: "practionners", label: "👨‍⚕️ Mes Praticiens" },
     { path: "documents", label: "📂 Mes Documents" },
-    { path: "agenda", label: "📅 Agenda" },
   ];
 
   return (

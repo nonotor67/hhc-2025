@@ -4,7 +4,6 @@ import logo from "./assets/logo.svg";
 import "./App.css";
 
 import PatientLayout from "./Layout";
-import Agenda from "./pages/Agenda";
 import Informations from "./pages/Informations";
 import Synthesis from "./pages/synthesis";
 import Practionners from "./pages/Practionners";
@@ -49,7 +48,6 @@ const App: React.FC = () => {
       <Route path="/" element={<MainPage />} />
       <Route path="/patients/login" element={<Login />}></Route>
       <Route path="/patients" element={<PatientLayout />}>
-        <Route path="agenda" element={<Agenda />} />
         <Route path="informations" element={<Informations />} />
         <Route path="synthesis" element={<Synthesis />} />
         <Route path="practionners" element={<Practionners />} />
