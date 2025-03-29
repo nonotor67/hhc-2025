@@ -1,0 +1,58 @@
+.synthese-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  
+  .synthese-card {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .synthese-header {
+    text-align: center;
+    background-color: #f7f7f7;
+  }
+  
+  .margin-bottom {
+    margin-bottom: 1rem;
+  }
+  
+  .margin-top {
+    margin-top: 1rem;
+  }
+  
+  /* Tâches */
+  .task-list,
+  .medication-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .task-item,
+  .medication-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task-content,
+  .medication-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .task-details,
+  .medication-details {
+    font-size: 0.85rem;
+    color: #6c757d;
+  }
+  
