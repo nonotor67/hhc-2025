@@ -21,8 +21,8 @@ const PatientLeftSidebar: React.FC = () => {
   }, [defaultFirstName, defaultLastName]);
 
   const navLinks = [
+    { path: "accueil", label: "📂 Accueil" },
     { path: "informations", label: "👤 Mes Informations" },
-    { path: "synthesis", label: "📋 Synthèse" },
     { path: "practionners", label: "👨‍⚕️ Mes Praticiens" },
     { path: "documents", label: "📂 Mes Documents" },
   ];

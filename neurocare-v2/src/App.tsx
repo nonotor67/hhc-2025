@@ -5,7 +5,7 @@ import "./App.css";
 
 import PatientLayout from "./Layout";
 import Informations from "./pages/Informations";
-import Synthesis from "./pages/synthesis";
+import Accueil from "./pages/accueil";
 import Practionners from "./pages/Practionners";
 import Documents from "./pages/Documents";
 import Login from "./Login";
@@ -48,8 +48,8 @@ const App: React.FC = () => {
       <Route path="/" element={<MainPage />} />
       <Route path="/patients/login" element={<Login />}></Route>
       <Route path="/patients" element={<PatientLayout />}>
+        <Route path="accueil" element={<Accueil />} />
         <Route path="informations" element={<Informations />} />
-        <Route path="synthesis" element={<Synthesis />} />
         <Route path="practionners" element={<Practionners />} />
         <Route path="documents" element={<Documents />} />
       </Route>

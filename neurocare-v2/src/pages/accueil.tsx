@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button, Form, Row, Col } from "react-bootstrap";
-import "./synthesis.css";
+import "./accueil.css";
 
 interface CheckItem {
   label: string;
@@ -9,7 +9,7 @@ interface CheckItem {
   hour: string;
 }
 
-const Synthese: React.FC = () => {
+const Accueil: React.FC = () => {
   const [summaryText, setSummaryText] = useState(() => localStorage.getItem("summaryText") || "Voici un résumé de vos données.");
   const [lastUpdated, setLastUpdated] = useState(new Date().toLocaleString());
 
@@ -255,4 +255,4 @@ const Synthese: React.FC = () => {
   );
 };
 
-export default Synthese;
+export default Accueil;
