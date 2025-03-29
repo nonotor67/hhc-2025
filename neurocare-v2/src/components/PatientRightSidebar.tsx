@@ -18,7 +18,7 @@ const PatientRightSidebar: React.FC = () => {
     { date: string; description: string; etat: string }[]
   >([]);
   const [agenda, setAgenda] = useState<{ date: string; event: string }[]>([]);
-  const [newNote, setNewNote] = useState({ description: "", etat: "😊" });
+  const [newNote, setNewNote] = useState({ description: "", etat: "😐" });
   const [newEvent, setNewEvent] = useState({ date: new Date(), event: "" });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
