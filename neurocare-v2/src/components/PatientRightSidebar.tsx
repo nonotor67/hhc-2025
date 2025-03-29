@@ -154,21 +154,30 @@ const PatientRightSidebar: React.FC = () => {
                     <ToggleButton
                       id="happy"
                       value="😊"
-                      className="emoji-btn left"
+                      className="emoji-btn"
+                      variant={
+                        newNote.etat === "😊" ? "primary" : "outline-primary"
+                      }
                     >
                       😊
                     </ToggleButton>
                     <ToggleButton
                       id="neutral"
                       value="😐"
-                      className="emoji-btn middle"
+                      className="emoji-btn"
+                      variant={
+                        newNote.etat === "😐" ? "primary" : "outline-primary"
+                      }
                     >
                       😐
                     </ToggleButton>
                     <ToggleButton
                       id="sad"
                       value="😢"
-                      className="emoji-btn right"
+                      className="emoji-btn"
+                      variant={
+                        newNote.etat === "😢" ? "primary" : "outline-primary"
+                      }
                     >
                       😢
                     </ToggleButton>

@@ -1,5 +1,5 @@
 .right-sidebar {
-  background-color: #dfe3e5;
+  background-color: #e8f5e9; /* Vert très clair */
 }
 
 .tab {
@@ -10,22 +10,23 @@
 }
 
 .tab:hover {
-  background: #e9ecef;
+  background: #c8e6c9; /* Vert clair au survol */
 }
 
 .tab.active {
-  background: #455a64;
+  background: #455a64; /* Vert principal */
   color: white;
 }
 
 .emoji-btn {
   padding: 10px;
   font-size: 20px;
-  border-radius: 50%; /* Bordure arrondie */
-  margin: 0 5px; /* Espacement entre les boutons */
-  border: 2px solid #ccc; /* Bordure légère */
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 2px solid #455a64; /* Bordure verte */
   background-color: transparent;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .emoji-btn:focus {
@@ -33,5 +34,12 @@
 }
 
 .emoji-btn:hover {
-  background-color: #f0f0f0; /* Changement de fond au survol */
+  background-color: #a5d6a7; /* Vert clair au survol */
+}
+
+.emoji-btn.active,
+.emoji-btn:checked {
+  background-color: #455a64 !important; /* Vert vif lorsqu'il est sélectionné */
+  border-color: #455a64 !important;
+  color: white !important;
 }
