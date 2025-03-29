@@ -34,8 +34,10 @@ const PatientRightSidebar: React.FC = () => {
     setNewEvent((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleDateChange = (date: Date) => {
-    setNewEvent((prev) => ({ ...prev, date }));
+  const handleDateChange = (date: Date | null) => {
+    if (date) {
+      setNewEvent((prev) => ({ ...prev, date }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
