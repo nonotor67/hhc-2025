@@ -1,65 +1,66 @@
-import React, { useState } from 'react';
-import logo from './assets/logo.svg';
-import './Login.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
+import logo from "./assets/logo.svg";
 
-const forgotPassword = (): void => {
-  console.log('Forgot password clicked');
-};
+export default function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-const Login = (): React.ReactNode => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState(''); // État pour afficher les messages
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email && password) {
+      // Simuler une connexion réussie
+      setTimeout(() => {
+        navigate("/patients/agenda");
+      }, 1000);
+    } else {
+      alert("Veuillez remplir tous les champs.");
+    }
+  };
+
+  const handleRegister = () => {
+    navigate("/patients/register");
+  };
 
   return (
-    <div className="login">
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        setMessage(`Tentative de connexion avec l'email : ${email}`);
-      }}>
-        <img src={logo} className="App-logo-login" alt="logo" />
-        
-        <div className="form-group">
-          <label htmlFor="email">Login</label>
-          <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password">Mot de passe</label>
-          <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
-        </div>
-
-        <a onClick={() => forgotPassword()} href="#" className="forgot-pass">Mot De Passe Oublié</a>
-
-        <div className="form-actions">
-          <button className="btn btn-primary" type="submit" onClick={() => 
-            {setMessage("Enregistrement en cours...");
-            setTimeout(() => 
-              {
-              setMessage("Bienvenue !");},
-               2000);
-            }
-            }>Se Connecter</button>
-
-          <button className="btn btn-secondary" type="button" onClick={() => 
-            {setMessage("Enregistrement en cours...");
-            setTimeout(() => 
-              {
-              setMessage("Bien enregistré !");},
-               2000);
-            }
-            }>S'inscrire</button>
-        </div>
-
-        {/* Affichage du message */}
-        {message && (
-          <div style={{ marginTop: '20px', color: '#4ecdc4', fontWeight: 'bold', textAlign: 'center' }}>
-            {message}
+    <div className="login-container">
+      <div className="login-form-container">
+        <img src={logo} alt="Logo" className="logo" />
+        <h2>Espace patient</h2>
+        <p className="login-subtitle">Connectez-vous pour accéder à votre espace</p>
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="votre@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-        )}
-      </form>
+          <div className="form-group">
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <label htmlFor="password">Mot de passe</label>
+              <a href="#" className="forgot-password">Mot de passe oublié</a>
+            </div>
+            <input
+              type="password"
+              id="password"
+              placeholder="Mot de passe"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-buttons">
+            <button type="submit" className="btn-primary">Se connecter</button>
+            <button type="button" className="btn-secondary" onClick={handleRegister}>S'inscrire</button>
+          </div>
+        </form>
+        <p className="footer">© 2025 NeuroCare. Tous droits réservés.</p>
+      </div>
     </div>
   );
 }
-
-export default Login;
