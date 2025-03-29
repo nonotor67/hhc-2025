@@ -13,7 +13,7 @@ export default function Login() {
     if (email && password) {
       // Simuler une connexion réussie
       setTimeout(() => {
-        navigate("/patients/agenda");
+        navigate("/patients/synthesis");
       }, 1000);
     } else {
       alert("Veuillez remplir tous les champs.");
@@ -29,7 +29,9 @@ export default function Login() {
       <div className="login-form-container">
         <img src={logo} alt="Logo" className="logo" />
         <h2>Espace patient</h2>
-        <p className="login-subtitle">Connectez-vous pour accéder à votre espace</p>
+        <p className="login-subtitle">
+          Connectez-vous pour accéder à votre espace
+        </p>
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -44,7 +46,9 @@ export default function Login() {
           <div className="form-group">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <label htmlFor="password">Mot de passe</label>
-              <a href="#" className="forgot-password">Mot de passe oublié</a>
+              <a href="#" className="forgot-password">
+                Mot de passe oublié
+              </a>
             </div>
             <input
               type="password"
@@ -55,8 +59,16 @@ export default function Login() {
             />
           </div>
           <div className="form-buttons">
-            <button type="submit" className="btn-primary">Se connecter</button>
-            <button type="button" className="btn-secondary" onClick={handleRegister}>S'inscrire</button>
+            <button type="submit" className="btn-primary">
+              Se connecter
+            </button>
+            <button
+              type="button"
+              className="btn-secondary"
+              onClick={handleRegister}
+            >
+              S'inscrire
+            </button>
           </div>
         </form>
         <p className="footer">© 2025 NeuroCare. Tous droits réservés.</p>
