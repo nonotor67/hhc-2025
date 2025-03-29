@@ -1,0 +1,33 @@
+.tab {
+  cursor: pointer;
+  padding: 10px;
+  transition: background 0.3s ease;
+  border-radius: 8px;
+}
+
+.tab:hover {
+  background: #e9ecef;
+}
+
+.tab.active {
+  background: #007bff;
+  color: white;
+}
+
+.emoji-btn {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 50%; /* Bordure arrondie */
+  margin: 0 5px; /* Espacement entre les boutons */
+  border: 2px solid #ccc; /* Bordure légère */
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.emoji-btn:focus {
+  outline: none;
+}
+
+.emoji-btn:hover {
+  background-color: #f0f0f0; /* Changement de fond au survol */
+}
