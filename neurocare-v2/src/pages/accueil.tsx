@@ -99,7 +99,17 @@ const Accueil: React.FC = () => {
   };
 
   const handlePDFDownload = () => {
-    alert("Fonction de téléchargement PDF à venir !");
+    const pdfPath = "/home/over/HHC/hhc-2025/neurocare-v2/src/Synthèse de la Semaine.pdf";
+    const link = document.createElement('a');
+    link.href = `file://${pdfPath}`;
+    link.download = "Synthèse de la Semaine.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handlePDFView = () => {
+    window.open('/Synthèse de la Semaine.pdf', '_blank');
   };
 
   const handleResearchSubmit = () => {
@@ -140,8 +150,8 @@ const Accueil: React.FC = () => {
               >
                 Actualiser
               </Button>{" "}
-              <Button variant="primary" onClick={handlePDFDownload}>
-                Télécharger PDF
+              <Button variant="primary" onClick={handlePDFView} className="me-2">
+              Visionner PDF
               </Button>
             </div>
           </div>
