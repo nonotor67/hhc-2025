@@ -10,7 +10,7 @@
 }
 
 .tab:hover {
-  background: #c8e6c9; /* Vert clair au survol */
+  background: #455a642d; /* Vert clair au survol */
 }
 
 .tab.active {
@@ -29,17 +29,20 @@
   transition: all 0.3s ease;
 }
 
-.emoji-btn:focus {
-  outline: none;
-}
-
 .emoji-btn:hover {
-  background-color: #a5d6a7; /* Vert clair au survol */
+  background-color: #455a642d; /* Vert clair au survol */
 }
 
 .emoji-btn.active,
 .emoji-btn:checked {
-  background-color: #455a64 !important; /* Vert vif lorsqu'il est sélectionné */
-  border-color: #455a64 !important;
-  color: white !important;
+  background-color: #455a64; /* Vert vif lorsqu'il est sélectionné */
+  border-color: #455a64;
+  color: white;
+}
+
+.miam {
+  border: 1px solid #455a64;
+  background-color: #455a642d;
+  border-radius: 10px;
+  padding: 10px;
 }

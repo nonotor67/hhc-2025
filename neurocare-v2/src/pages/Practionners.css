@@ -1,0 +1,163 @@
+.practionners-container {
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.practionners-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cards-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.cards-row > .col-md-6 {
+  flex: 1;
+  padding: 0;
+}
+
+.practionners-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 100%;
+  margin: 0;
+}
+
+.practionners-card:hover {
+  transform: translateY(-5px);
+}
+
+.health-professionals-card {
+  background-color: #e3f2fd; /* Bleu pastel */
+  border-left: 5px solid #2196f3;
+}
+
+.complementary-therapies-card {
+  background-color: #f3e5f5; /* Violet pastel */
+  border-left: 5px solid #9c27b0;
+}
+
+.practionners-card h3 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.professional-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.professional-item:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translateX(5px);
+}
+
+.therapy-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.therapy-item:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translateX(5px);
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #357abd;
+  border-color: #357abd;
+  transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Animation pour les cartes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.practionners-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Styles pour les listes */
+.professionals-list,
+.therapies-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.professionals-list::-webkit-scrollbar,
+.therapies-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.professionals-list::-webkit-scrollbar-track,
+.therapies-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.professionals-list::-webkit-scrollbar-thumb,
+.therapies-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.professionals-list::-webkit-scrollbar-thumb:hover,
+.therapies-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

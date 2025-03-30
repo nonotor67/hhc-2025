@@ -96,8 +96,11 @@ const PatientRightSidebar: React.FC = () => {
         </Col>
       </Row>
       <Row
-        className="mb-3 border-bottom"
-        style={{ maxHeight: "60vh", overflowY: "auto" }} // Définit le défilement
+        className="mb-3"
+        style={{
+          maxHeight: "60vh",
+          overflowY: "auto",
+        }} // Définit le défilement
       >
         {activeTab === "notes"
           ? notes.map((item, index) => (
@@ -128,12 +131,12 @@ const PatientRightSidebar: React.FC = () => {
               </Card>
             ))}
       </Row>
-      <Row className="mt-auto">
+      <Row className="mt-auto miam">
         <Form onSubmit={handleSubmit}>
           {activeTab === "notes" ? (
             <>
               <Form.Group controlId="noteDescription">
-                <Form.Label>Description</Form.Label>
+                <Form.Label>Comment je me sens aujourd'hui ?</Form.Label>
                 <Form.Control
                   type="text"
                   name="description"

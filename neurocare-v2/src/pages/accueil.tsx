@@ -99,8 +99,9 @@ const Accueil: React.FC = () => {
   };
 
   const handlePDFDownload = () => {
-    const pdfPath = "/home/over/HHC/hhc-2025/neurocare-v2/src/Synthèse de la Semaine.pdf";
-    const link = document.createElement('a');
+    const pdfPath =
+      "/home/over/HHC/hhc-2025/neurocare-v2/src/Synthèse de la Semaine.pdf";
+    const link = document.createElement("a");
     link.href = `file://${pdfPath}`;
     link.download = "Synthèse de la Semaine.pdf";
     document.body.appendChild(link);
@@ -109,7 +110,7 @@ const Accueil: React.FC = () => {
   };
 
   const handlePDFView = () => {
-    window.open('/Synthèse de la Semaine.pdf', '_blank');
+    window.open("/Synthèse de la Semaine.pdf", "_blank");
   };
 
   const handleResearchSubmit = () => {
@@ -122,7 +123,7 @@ const Accueil: React.FC = () => {
     <div className="synthese-container">
       <Card className="synthese-card">
         <Card.Header className="synthese-header">
-          <h5>Synthèse</h5>
+          <h5>📝 Ma Synthèse</h5>
         </Card.Header>
         <Card.Body>
           <Form.Group className="margin-bottom">
@@ -150,8 +151,12 @@ const Accueil: React.FC = () => {
               >
                 Actualiser
               </Button>{" "}
-              <Button variant="primary" onClick={handlePDFView} className="me-2">
-              Visionner PDF
+              <Button
+                variant="primary"
+                onClick={handlePDFView}
+                className="me-2"
+              >
+                Visionner PDF
               </Button>
             </div>
           </div>
@@ -162,7 +167,7 @@ const Accueil: React.FC = () => {
         <Col md={6}>
           <Card className="synthese-card">
             <Card.Header className="synthese-header">
-              <h6>Ma Journée</h6>
+              <h6>☀️ Ma Journée</h6>
             </Card.Header>
             <Card.Body>
               <ul className="task-list">
@@ -221,7 +226,7 @@ const Accueil: React.FC = () => {
         <Col md={6}>
           <Card className="synthese-card">
             <Card.Header className="synthese-header">
-              <h6>Posologie</h6>
+              <h6>💊 Mon Pilulier</h6>
             </Card.Header>
             <Card.Body>
               <ul className="medication-list">
@@ -281,7 +286,7 @@ const Accueil: React.FC = () => {
       <Card className="synthese-card">
         <Card.Body className="text-center">
           <Button variant="primary" onClick={handleResearchSubmit}>
-            Transmettre les données à la recherche
+            🔗 Transmettre les données à la recherche
           </Button>
         </Card.Body>
       </Card>
