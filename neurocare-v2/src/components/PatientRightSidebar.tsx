@@ -6,6 +6,7 @@ import {
   ToggleButtonGroup,
   ToggleButton,
   Card,
+  Button,
 } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Importer le style de date-picker
@@ -20,6 +21,7 @@ const PatientRightSidebar: React.FC = () => {
   const [agenda, setAgenda] = useState<{ date: string; event: string }[]>([]);
   const [newNote, setNewNote] = useState({ description: "", etat: "😐" });
   const [newEvent, setNewEvent] = useState({ date: new Date(), event: "" });
+  const [isListening, setIsListening] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -39,6 +41,26 @@ const PatientRightSidebar: React.FC = () => {
     if (date) {
       setNewEvent((prev) => ({ ...prev, date }));
     }
+  };
+
+  const startListening = (field: "description" | "event") => {
+    setIsListening(true);
+    // Simulation d'enregistrement avec un texte prédéfini
+    setTimeout(() => {
+      if (field === "description") {
+        setNewNote((prev) => ({
+          ...prev,
+          description:
+            "Je suis au hackathon, pas beaucoup dormi, mais sinon j'ai la patate !",
+        }));
+      } else {
+        setNewEvent((prev) => ({
+          ...prev,
+          event: "Rendez-vous avec le médecin pour un suivi mensuel.",
+        }));
+      }
+      setIsListening(false);
+    }, 3000);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -137,13 +159,23 @@ const PatientRightSidebar: React.FC = () => {
             <>
               <Form.Group controlId="noteDescription">
                 <Form.Label>Comment je me sens aujourd'hui ?</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="description"
-                  value={newNote.description}
-                  onChange={handleInputChange}
-                  placeholder="Entrez une description"
-                />
+                <div className="input-group">
+                  <Form.Control
+                    type="text"
+                    name="description"
+                    value={newNote.description}
+                    onChange={handleInputChange}
+                    placeholder="Entrez une description"
+                  />
+                  <Button
+                    variant={isListening ? "danger" : "primary"}
+                    onClick={() => startListening("description")}
+                    disabled={isListening}
+                    className="microphone-btn"
+                  >
+                    {isListening ? "🎤 Enregistrement" : "🎤 Enregistrer"}
+                  </Button>
+                </div>
               </Form.Group>
               <Form.Group controlId="noteEtat" className="mt-2">
                 <Form.Label>État</Form.Label>
@@ -205,13 +237,23 @@ const PatientRightSidebar: React.FC = () => {
               </Form.Group>
               <Form.Group controlId="eventDescription" className="mt-2">
                 <Form.Label>Nouvel événement</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="event"
-                  value={newEvent.event}
-                  onChange={handleEventChange}
-                  placeholder="Entrez un événement"
-                />
+                <div className="input-group">
+                  <Form.Control
+                    type="text"
+                    name="event"
+                    value={newEvent.event}
+                    onChange={handleEventChange}
+                    placeholder="Entrez un événement"
+                  />
+                  <Button
+                    variant={isListening ? "danger" : "primary"}
+                    onClick={() => startListening("event")}
+                    disabled={isListening}
+                    className="microphone-btn"
+                  >
+                    {isListening ? "🎤 Enregistrement" : "🎤 Enregistrer"}
+                  </Button>
+                </div>
               </Form.Group>
             </>
           )}

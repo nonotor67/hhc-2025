@@ -48,8 +48,10 @@ const Documents: React.FC = () => {
       const reader = new FileReader();
       reader.onload = (event) => {
         const fileContent = event.target?.result as string;
-        const documentType = newDocument.file!.type.startsWith("image/") ? "image" : "pdf";
-        
+        const documentType = newDocument.file!.type.startsWith("image/")
+          ? "image"
+          : "pdf";
+
         const newDoc: Document = {
           id: Date.now().toString(),
           name: newDocument.name,
@@ -71,7 +73,7 @@ const Documents: React.FC = () => {
   };
 
   const deleteDocument = (id: string) => {
-    setDocuments(documents.filter(doc => doc.id !== id));
+    setDocuments(documents.filter((doc) => doc.id !== id));
   };
 
   const renderDocumentCard = (doc: Document) => {
@@ -85,7 +87,10 @@ const Documents: React.FC = () => {
               <p className="mb-1">Date d'ajout: {doc.uploadDate}</p>
               {doc.type === "image" ? (
                 <div className="image-preview">
-                  <i className="fas fa-file-image text-primary" style={{ fontSize: "2rem" }}></i>
+                  <i
+                    className="fas fa-file-image text-primary"
+                    style={{ fontSize: "2rem" }}
+                  ></i>
                   <Button
                     variant="link"
                     href={doc.file}
@@ -97,7 +102,10 @@ const Documents: React.FC = () => {
                 </div>
               ) : (
                 <div className="pdf-preview">
-                  <i className="fas fa-file-pdf text-danger" style={{ fontSize: "2rem" }}></i>
+                  <i
+                    className="fas fa-file-pdf text-danger"
+                    style={{ fontSize: "2rem" }}
+                  ></i>
                   <Button
                     variant="link"
                     href={doc.file}
@@ -125,7 +133,7 @@ const Documents: React.FC = () => {
   return (
     <Container fluid className="documents-container">
       <h1 className="documents-title">Mes Documents</h1>
-      
+
       <Card className="documents-card mb-4">
         <Card.Body>
           <h2 className="mb-4">Ajouter un document</h2>
@@ -136,7 +144,9 @@ const Documents: React.FC = () => {
                 type="text"
                 placeholder="Ex: Ordonnances, Examens, etc."
                 value={newDocument.category}
-                onChange={(e) => setNewDocument({...newDocument, category: e.target.value})}
+                onChange={(e) =>
+                  setNewDocument({ ...newDocument, category: e.target.value })
+                }
                 required
               />
             </Form.Group>

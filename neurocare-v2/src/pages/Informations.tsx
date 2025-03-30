@@ -7,13 +7,25 @@ const MesInfo: React.FC = () => {
   const defaultLastName = import.meta.env.VITE_DEFAULT_LASTNAME || "Nom";
 
   // États pour les informations personnelles
-  const [firstName, setFirstName] = useState(() => localStorage.getItem("firstName") || defaultFirstName);
-  const [lastName, setLastName] = useState(() => localStorage.getItem("lastName") || defaultLastName);
-  const [height, setHeight] = useState(() => localStorage.getItem("height") || "170");
-  const [weight, setWeight] = useState(() => localStorage.getItem("weight") || "65");
-  const [bloodGroup, setBloodGroup] = useState(() => localStorage.getItem("bloodGroup") || "A+");
+  const [firstName, setFirstName] = useState(
+    () => localStorage.getItem("firstName") || defaultFirstName
+  );
+  const [lastName, setLastName] = useState(
+    () => localStorage.getItem("lastName") || defaultLastName
+  );
+  const [height, setHeight] = useState(
+    () => localStorage.getItem("height") || "170"
+  );
+  const [weight, setWeight] = useState(
+    () => localStorage.getItem("weight") || "65"
+  );
+  const [bloodGroup, setBloodGroup] = useState(
+    () => localStorage.getItem("bloodGroup") || "A+"
+  );
   const [age, setAge] = useState(() => localStorage.getItem("age") || "30");
-  const [allergies, setAllergies] = useState(() => localStorage.getItem("allergies") || "Aucune");
+  const [allergies, setAllergies] = useState(
+    () => localStorage.getItem("allergies") || "Aucune"
+  );
 
   useEffect(() => {
     localStorage.setItem("firstName", firstName);
@@ -29,7 +41,7 @@ const MesInfo: React.FC = () => {
     localStorage.setItem("bloodGroup", bloodGroup);
     localStorage.setItem("age", age);
     localStorage.setItem("allergies", allergies);
-    
+
     alert(
       `Profil mis à jour :\nNom : ${lastName}\nPrénom : ${firstName}\nTaille : ${height} cm\nPoids : ${weight} kg\nGroupe sanguin : ${bloodGroup}\nÂge : ${age} ans\nAllergies : ${allergies}`
     );
@@ -40,7 +52,7 @@ const MesInfo: React.FC = () => {
   return (
     <Container fluid className="info-container">
       <h1 className="info-title">Mes Infos</h1>
-      
+
       {/* Carte des informations personnelles */}
       <Card className="info-card mb-4">
         <Card.Body>
