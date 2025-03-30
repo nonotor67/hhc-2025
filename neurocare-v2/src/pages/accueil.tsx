@@ -10,10 +10,7 @@ interface CheckItem {
 }
 
 const Accueil: React.FC = () => {
-  const [summaryText, setSummaryText] = useState(
-    () =>
-      localStorage.getItem("summaryText") || "Voici un résumé de vos données."
-  );
+
   const [lastUpdated, setLastUpdated] = useState(new Date().toLocaleString());
 
   const [dayTasks, setDayTasks] = useState<CheckItem[]>(() => {
@@ -34,10 +31,9 @@ const Accueil: React.FC = () => {
 
   // Sauvegarder les données dans le localStorage à chaque modification
   useEffect(() => {
-    localStorage.setItem("summaryText", summaryText);
     localStorage.setItem("dayTasks", JSON.stringify(dayTasks));
     localStorage.setItem("medications", JSON.stringify(medications));
-  }, [summaryText, dayTasks, medications]);
+  }, [dayTasks, medications]);
 
   const getCurrentTime = (): string => {
     const now = new Date();
@@ -123,41 +119,34 @@ const Accueil: React.FC = () => {
     <div className="synthese-container">
       <Card className="synthese-card">
         <Card.Header className="synthese-header">
-          <h5>📝 Ma Synthèse</h5>
+          <h3 className="mb-0">📝 Ma Synthèse</h3>
         </Card.Header>
         <Card.Body>
-          <Form.Group className="margin-bottom">
-            <Form.Control
-              as="textarea"
-              rows={3}
-              value={summaryText}
-              onChange={(e) => setSummaryText(e.target.value)}
-            />
-          </Form.Group>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div className="text-muted">
-              Dernière mise à jour : {lastUpdated}
+          <div className="synthese-content">
+            <div className="synthese-info">
+              <div className="synthese-date">
+                <h5>Date du jour</h5>
+                <p>{new Date().toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+              </div>
             </div>
-            <div>
-              <Button
-                className="btn-secondary"
-                onClick={() => setLastUpdated(new Date().toLocaleString())}
-              >
-                Actualiser
-              </Button>{" "}
-              <Button
-                variant="primary"
-                onClick={handlePDFView}
-                className="me-2"
-              >
-                Visionner PDF
-              </Button>
+            <div className="synthese-actions">
+              <div className="text-muted mb-3">
+                Dernière mise à jour : {lastUpdated}
+              </div>
+              <div className="d-flex gap-2">
+                <Button
+                  className="btn-secondary"
+                  onClick={() => setLastUpdated(new Date().toLocaleString())}
+                >
+                  Actualiser
+                </Button>
+                <Button
+                  variant="primary"
+                  onClick={handlePDFView}
+                >
+                  Visionner PDF
+                </Button>
+              </div>
             </div>
           </div>
         </Card.Body>

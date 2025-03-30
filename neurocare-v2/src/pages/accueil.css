@@ -16,6 +16,83 @@
   .synthese-header {
     text-align: center;
     background-color: #f7f7f7;
+    padding: 1.5rem;
+  }
+
+  .synthese-header h3 {
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  .synthese-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .synthese-info {
+    flex: 1;
+  }
+
+  .synthese-date {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+
+  .synthese-date h5 {
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+  }
+
+  .synthese-date p {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .synthese-stats {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .stat-item h5 {
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-item p {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .synthese-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  .synthese-actions .text-muted {
+    font-size: 0.9rem;
+  }
+
+  .synthese-actions .btn {
+    min-width: 120px;
   }
   
   .margin-bottom {
