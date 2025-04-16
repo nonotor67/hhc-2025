@@ -6,7 +6,6 @@ const MesInfo: React.FC = () => {
     const defaultFirstName = import.meta.env.VITE_DEFAULT_FIRSTNAME || "Prénom";
     const defaultLastName = import.meta.env.VITE_DEFAULT_LASTNAME || "Nom";
     
-    // États pour les informations personnelles
     const [firstName, setFirstName] = useState(
         () => localStorage.getItem("firstName") || defaultFirstName
     );

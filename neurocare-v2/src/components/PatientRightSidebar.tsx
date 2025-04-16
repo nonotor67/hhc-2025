@@ -9,7 +9,7 @@ import {
     Button,
 } from "react-bootstrap";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"; // Importer le style de date-picker
+import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./PatientRightSidebar.css";
 
