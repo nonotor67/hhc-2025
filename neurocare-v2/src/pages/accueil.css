@@ -4,132 +4,132 @@
     align-items: center;
     padding: 2rem;
     gap: 2rem;
-  }
-  
-  .synthese-card {
+}
+
+.synthese-card {
     width: 100%;
     max-width: 900px;
     margin-bottom: 2rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .synthese-header {
+}
+
+.synthese-header {
     text-align: center;
     background-color: #f7f7f7;
     padding: 1.5rem;
-  }
+}
 
-  .synthese-header h3 {
+.synthese-header h3 {
     color: #2c3e50;
     font-weight: 600;
-  }
-  
-  .synthese-content {
+}
+
+.synthese-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
     gap: 2rem;
-  }
+}
 
-  .synthese-info {
+.synthese-info {
     flex: 1;
-  }
+}
 
-  .synthese-date {
+.synthese-date {
     background-color: #f8f9fa;
     padding: 1.5rem;
     border-radius: 8px;
     max-width: 400px;
-  }
+}
 
-  .synthese-date h5 {
+.synthese-date h5 {
     color: #6c757d;
     margin-bottom: 0.5rem;
-  }
+}
 
-  .synthese-date p {
+.synthese-date p {
     font-size: 1.3rem;
     color: #2c3e50;
     margin: 0;
     font-weight: 500;
-  }
+}
 
-  .synthese-stats {
+.synthese-stats {
     display: flex;
     gap: 1.5rem;
-  }
+}
 
-  .stat-item {
+.stat-item {
     flex: 1;
     background-color: #f8f9fa;
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
-  }
+}
 
-  .stat-item h5 {
+.stat-item h5 {
     color: #6c757d;
     margin-bottom: 0.5rem;
-  }
+}
 
-  .stat-item p {
+.stat-item p {
     font-size: 1.2rem;
     color: #2c3e50;
     font-weight: 600;
     margin: 0;
-  }
+}
 
-  .synthese-actions {
+.synthese-actions {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
-  }
+}
 
-  .synthese-actions .text-muted {
+.synthese-actions .text-muted {
     font-size: 0.9rem;
-  }
+}
 
-  .synthese-actions .btn {
+.synthese-actions .btn {
     min-width: 120px;
-  }
-  
-  .margin-bottom {
+}
+
+.margin-bottom {
     margin-bottom: 1rem;
-  }
-  
-  .margin-top {
+}
+
+.margin-top {
     margin-top: 1rem;
-  }
-  
-  /* Tâches */
-  .task-list,
-  .medication-list {
+}
+
+/* Tâches */
+.task-list,
+.medication-list {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .task-item,
-  .medication-item {
+}
+
+.task-item,
+.medication-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.4rem 0;
     border-bottom: 1px solid #ddd;
-  }
-  
-  .task-content,
-  .medication-content {
+}
+
+.task-content,
+.medication-content {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-  }
-  
-  .task-details,
-  .medication-details {
+}
+
+.task-details,
+.medication-details {
     font-size: 0.85rem;
     color: #6c757d;
-  }
+}
   
